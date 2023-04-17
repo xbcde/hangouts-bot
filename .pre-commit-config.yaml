@@ -1,6 +1,7 @@
 ---
 default_stages:
   - commit
+exclude: ^deployments/helm
 repos:
   - repo: https://github.com/qoomon/git-conventional-commits
     rev: v2.2.0
