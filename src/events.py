@@ -40,7 +40,7 @@ class Event(EventBase, table=True):
 
     def to_ics(self):
         e = IcsEvent()
-        e.summary = self.name
+        e.name = self.name
         e.begin = datetime.date.fromisoformat(self.start)
         e.end = datetime.date.fromisoformat(self.end)
         return e
