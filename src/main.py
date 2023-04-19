@@ -3,7 +3,7 @@ import os
 import threading
 
 import uvicorn as uvicorn
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, Response
 from ics import Calendar
 from sqlmodel import Session, SQLModel, create_engine, select
 
@@ -46,7 +46,7 @@ def read_root(
     c = Calendar()
     for event in results:
         c.events.add(event.to_ics())
-    return c.serialize()
+    return Response(content=c.serialize(), media_type="text/calendar")
 
 
 def sync_events(new_events):
