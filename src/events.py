@@ -43,6 +43,7 @@ class Event(EventBase, table=True):
         e.name = self.name
         e.begin = datetime.date.fromisoformat(self.start)
         e.end = datetime.date.fromisoformat(self.end)
+        e.make_all_day()
         return e
 
     def __eq__(self, other):
