@@ -47,6 +47,11 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: DISCORD_TOKEN
+              value: {{ .Values.discordToken }}
+            - name: DISCORD_TEXT_CHANNEL_ID
+              value: {{ .Values.discordTextChannelId }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
