@@ -60,7 +60,7 @@ def sync_events(new_events):
 
 def start_discord_client():
     client = HangoutsClient(
-        text_channel_id=os.environ["DISCORD_TEXT_CHANNEL_ID"], on_sync=sync_events
+        text_channel_id=int(os.environ["DISCORD_TEXT_CHANNEL_ID"]), on_sync=sync_events
     )
     client.run(os.environ["DISCORD_TOKEN"])
 
